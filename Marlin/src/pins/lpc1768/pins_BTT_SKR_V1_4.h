@@ -266,6 +266,10 @@
       #define SD_DETECT_PIN                P1_31  // (49) (NOT 5V tolerant)
     #endif
 
+    #if SD_CONNECTION_IS(LCD_AND_ONBOARD)
+      #define SD_DETECT_PIN                P1_31  // (49) (NOT 5V tolerant)
+    #endif
+
     #if ENABLED(FYSETC_MINI_12864)
       #define DOGLCD_CS                    P1_18
       #define DOGLCD_A0                    P1_19

@@ -462,6 +462,8 @@
 #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
 #if (GITHUB_USER==URSOFT)
  #define EXTRUDER_AUTO_FAN_SPEED 100
+#elif (GITHUB_USER==BALKIN)
+ #define EXTRUDER_AUTO_FAN_SPEED 180
 #else
  #define EXTRUDER_AUTO_FAN_SPEED 200   // 255 == full speed
 #endif
@@ -1055,7 +1057,7 @@
 #define LCD_TIMEOUT_TO_STATUS 60000
 
 // Add an 'M73' G-code to set the current percentage
-#define LCD_SET_PROGRESS_MANUALLY
+// #define LCD_SET_PROGRESS_MANUALLY
 
 // Show the E position (filament used) during printing
 //#define LCD_SHOW_E_TOTAL
@@ -1123,6 +1125,7 @@
    */
   #define POWER_LOSS_RECOVERY
   #if ENABLED(POWER_LOSS_RECOVERY)
+    #define POWER_LOSS_PIN -1 // BaRON: disable on SKR1.4
     #define PLR_ENABLED_DEFAULT   true  // Power Loss Recovery enabled by default. (Set with 'M413 Sn' & M500)
     //#define BACKUP_POWER_SUPPLY       // Backup power / UPS to move the steppers on power loss
     //#define POWER_LOSS_ZRAISE       2 // (mm) Z axis raise on resume (on power loss with UPS)
@@ -1131,7 +1134,6 @@
     //#define POWER_LOSS_PULL           // Set pullup / pulldown as appropriate
     #define POWER_LOSS_PURGE_LEN   20 // (mm) Length of filament to purge on resume
     //#define POWER_LOSS_RETRACT_LEN 10 // (mm) Length of filament to retract on fail. Requires backup power.
-
     // Without a POWER_LOSS_PIN the following option helps reduce wear on the SD card,
     // especially with "vase mode" printing. Set too high and vases cannot be continued.
     #define POWER_LOSS_MIN_Z_CHANGE 0.05 // (mm) Minimum Z change before saving power-loss data
@@ -1201,7 +1203,7 @@
    * On print completion the LCD Menu will open with the file selected.
    * You can just click to start the print, or navigate elsewhere.
    */
-  #define SD_REPRINT_LAST_SELECTED_FILE
+  // #define SD_REPRINT_LAST_SELECTED_FILE
   /**
    * https://github.com/ursoft/Marlin/issues/4#issuecomment-555858393
    */
@@ -1210,7 +1212,7 @@
   /**
    * Auto-report SdCard status with M27 S<seconds>
    */
-  #define AUTO_REPORT_SD_STATUS
+  // #define AUTO_REPORT_SD_STATUS
 
   /**
    * Support for USB thumb drives using an Arduino USB Host Shield or
@@ -2393,7 +2395,6 @@
    * M122 - Report driver parameters (Requires TMC_DEBUG)
    */
   //#define MONITOR_DRIVER_STATUS
-
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP_DOWN     50  // [mA]
     #define REPORT_CURRENT_CHANGE
@@ -2487,7 +2488,7 @@
    * Enable M122 debugging command for TMC stepper drivers.
    * M122 S0/1 will enable continous reporting.
    */
-  //#define TMC_DEBUG
+  #define TMC_DEBUG
 
   /**
    * You can set your own advanced settings by filling in predefined functions.
@@ -3429,7 +3430,7 @@
 //
 // M43 - display pin status, toggle pins, watch pins, watch endstops & toggle LED, test servo probe
 //
-#if (GITHUB_USER==URSOFT)
+#if (GITHUB_USER==URSOFT || GITHUB_USER==BALKIN)
  #define PINS_DEBUGGING
 #endif
 
