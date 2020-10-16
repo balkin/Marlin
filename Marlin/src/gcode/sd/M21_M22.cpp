@@ -36,13 +36,15 @@ void GcodeSuite::M21() { card.mount(); }
 /**
  * M22: Release SD Card
  */
-void GcodeSuite::M22() { 
+void GcodeSuite::M22() {
     if(card.isPrinting()) {
       SERIAL_ERROR_MSG("No M22 while print");
     } else {
       card.release();
+#if HAS_LCD_MENU
       void menu_media();
       if(MarlinUI::currentScreen == menu_media) MarlinUI::return_to_status();
+#endif
     }
 }
 
