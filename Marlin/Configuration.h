@@ -586,7 +586,7 @@
   //#define MIN_BED_POWER 0
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
-//UltiSteel 
+//UltiSteel
 #if (GITHUB_USER==URSOFT)
   #define DEFAULT_bedKp 32.27
   #define DEFAULT_bedKi 6.45
@@ -1430,7 +1430,9 @@
 #if ENABLED(LCD_BED_LEVELING)
   #define MESH_EDIT_Z_STEP  0.025 // (mm) Step size while manually probing Z axis.
   #define LCD_PROBE_Z_RANGE 4     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
+  #if HAS_LCD_MENU
   #define MESH_EDIT_MENU        // Add a menu to edit mesh points
+  #endif
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
