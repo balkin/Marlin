@@ -38,6 +38,8 @@
  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " (ursoft)"
 #elif (GITHUB_USER==ILMEN)
  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " (ilmen)"
+#elif (GITHUB_USER==BALKIN)
+ #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " (BaRoN!)"
 #else
  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " (Github)"
 #endif
@@ -54,7 +56,7 @@
 /**
  * Defines a generic printer name to be output to the LCD after booting Marlin.
  */
-//#define MACHINE_NAME "3D Printer"
+#define MACHINE_NAME "UlTi Steel"
 
 /**
  * The SOURCE_CODE_URL is the location where users will find the Marlin Source
