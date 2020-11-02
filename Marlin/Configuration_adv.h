@@ -494,14 +494,14 @@
 /**
  * M355 Case Light on-off / brightness
  */
-#if (GITHUB_USER==URSOFT)
+#if (GITHUB_USER==URSOFT || GITHUB_USER==BALKIN)
   #define CASE_LIGHT_ENABLE
 #endif
 #if ENABLED(CASE_LIGHT_ENABLE)
   #ifdef IVI_PWM_EXT_1_0
     #define CASE_LIGHT_PIN IVI_PWM_EXT_PIN(0)   // Override the default pin if needed
   #else
-    #define CASE_LIGHT_PIN 4   // Override the default pin if needed
+    #define CASE_LIGHT_PIN P1_26   // Override the default pin if needed
   #endif
   #define CASE_LIGHT_NATURAL_BRIGHTNESS       // Use logarithmic scale
   #define INVERT_CASE_LIGHT false             // Set true if Case Light is ON when pin is LOW
